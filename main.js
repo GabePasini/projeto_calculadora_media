@@ -55,9 +55,7 @@ function atualizaTabela() {
 function atualizaMediaFinal() {
     const mediaFinal = calculaMediaFinal ();
 
-    const mediaFinalArredondada = arredondaParaCima(mediaFinal, 2);
-
-    document.getElementById('media-final-valor').innerHTML = mediaFinalArredondada;
+    document.getElementById('media-final-valor').innerHTML = mediaFinal.toFixed(2);
     document.getElementById('media-final-resultado').innerHTML = mediaFinal >= notaMinima ? spanAprovado : spanReprovado;
 }
 
@@ -69,9 +67,4 @@ function calculaMediaFinal() {
     }
 
     return somaDasNotas / notas.length;
-}
-
-function arredondaParaCima(numero, casasDecimais) {
-    const fatorDeMultiplicacao = Math.pow(10, casasDecimais);
-    return Math.ceil(numero * fatorDeMultiplicacao) / fatorDeMultiplicacao;
 }
